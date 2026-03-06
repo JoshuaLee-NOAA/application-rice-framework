@@ -1,0 +1,80 @@
+[
+  {
+    "Application": "Application Name Here",
+    "Program Name": "Program or Division Name",
+    
+    "_comment_basic_info": "=== BASIC INFORMATION (Required for all applications) ===",
+    "Prod URL": "https://example.fisheries.noaa.gov",
+    "Dev URL": "https://dev-example.fisheries.noaa.gov",
+    "Test URL": "https://test-example.fisheries.noaa.gov",
+    "Any Additional url": "https://api.example.fisheries.noaa.gov",
+    "Public Access?": "Yes|No|Partial",
+    "Requires Login?": "Yes|No",
+    "Type of Login": "Login.gov|NOAA SSO|Custom Auth|N/A",
+    "Akamai?": "Yes|No",
+    "Technology Stack": "React, Node.js, PostgreSQL, AWS",
+    "Product Owner": "Full Name",
+    "Product Contact": "email@noaa.gov",
+    "Project Manager": "Full Name or leave blank",
+    "Development Team": "Team Name or Contractor Name",
+    "Development Org": "Internal OCIO|External Contractor|Regional Office|Science Center",
+    "Hosting Org": "AWS Cloud|Azure Cloud|On-premise Data Center|Regional Data Center",
+    "Hosting Cost": "$XX,XXX/year",
+    "Number of Users": "XXXX",
+    "Purpose": "Detailed description of what the application does, who uses it, and why it's important to the mission. Should be 100+ characters for high confidence scoring.",
+    "Funding Notes": "Source of funding",
+    "Notes": "Any additional notes about the application",
+    
+    "_comment_user_metrics": "=== USER METRICS (Quantitative - Preferred for accurate REACH scoring) ===",
+    "User Metrics": {
+      "External Users": 0,
+      "_help_external": "Number of users outside NOAA (industry, public, partners, state agencies)",
+      "Internal Users": 0,
+      "_help_internal": "Number of NOAA staff users",
+      "Number of Regions Served": 6,
+      "_help_regions": "How many NOAA Fisheries regions use this? (1-6, or more for national)",
+      "Geographic Scope": "National|Regional|Local",
+      "_help_scope": "National=serves all regions, Regional=1-2 regions, Local=single office/program",
+      "FMC Coverage": [],
+      "_help_fmc": "Optional: List of Fishery Management Councils served (NPFMC, PFMC, etc)"
+    },
+    
+    "_comment_mission_metrics": "=== MISSION METRICS (Quantitative - Preferred for accurate IMPACT scoring) ===",
+    "Mission Metrics": {
+      "Business Criticality": "Tier 1|Tier 2|Tier 3",
+      "_help_criticality": "Tier 1=Mission Critical (24/7, immediate impact), Tier 2=High Impact (core workflows), Tier 3=Supporting",
+      "Statutory Requirements": [],
+      "_help_statutory": "List applicable laws: MSA, ESA, MMPA, Treaty, NEPA, etc. Empty array [] if none",
+      "Downtime Cost Per Hour": 0,
+      "_help_downtime": "Estimated cost/impact of 1 hour of downtime in dollars. 0 if minimal/unknown",
+      "RTO (Recovery Time Objective)": "4 hours|24 hours|72 hours",
+      "_help_rto": "Maximum acceptable downtime. Lower = more critical",
+      "RPO (Recovery Point Objective)": "1 hour|24 hours|1 week",
+      "_help_rpo": "Maximum acceptable data loss. How much can we lose?",
+      "Compliance Mandates": [],
+      "_help_mandates": "Optional: Specific requirements like 'Annual Catch Limits', 'Bycatch Reporting'"
+    },
+    
+    "_comment_resource_metrics": "=== RESOURCE METRICS (Quantitative - Preferred for accurate EFFORT scoring) ===",
+    "Resource Metrics": {
+      "Annual Hosting Cost": 0,
+      "_help_hosting": "Total annual cloud/hosting costs in dollars",
+      "FTE Dedicated": 0.0,
+      "_help_fte": "Full-time equivalent staff dedicated to this app (0.5 = half-time, 2.0 = two people)",
+      "Support Tickets Annual": 0,
+      "_help_tickets": "Number of support/help desk tickets per year",
+      "Incident Count Annual": 0,
+      "_help_incidents": "Number of production incidents (outages, bugs, security) per year",
+      "Tech Stack Age Years": 0,
+      "_help_age": "How many years old is the primary technology? (e.g., Rails 3 from 2011 = 15 years)",
+      "Lines of Code": 0,
+      "_help_loc": "Optional: Total lines of code (if known)",
+      "Technical Debt Hours": 0,
+      "_help_debt": "Estimated hours of technical debt/refactoring needed",
+      "Security Vulnerabilities": 0,
+      "_help_vulns": "Optional: Number of known security vulnerabilities",
+      "Last Major Update": "YYYY-MM-DD",
+      "_help_update": "Date of last significant feature/infrastructure update"
+    }
+  }
+]

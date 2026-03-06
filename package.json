@@ -1,0 +1,20 @@
+{
+  "name": "application-rice-framework",
+  "version": "1.0.0",
+  "description": "RICE Framework Analysis Tool for NOAA Fisheries Application Portfolio Management",
+  "main": "src/index.js",
+  "scripts": {
+    "start": "node src/index.js",
+    "analyze": "node src/index.js"
+  },
+  "keywords": [
+    "rice",
+    "portfolio",
+    "analysis",
+    "noaa",
+    "fisheries"
+  ],
+  "author": "NOAA Fisheries OCIO",
+  "license": "MIT",
+  "type": "module"
+}

@@ -1,0 +1,385 @@
+{
+  "metadata": {
+    "generatedAt": "2026-03-06T14:06:28.325Z",
+    "totalApplications": 12,
+    "framework": "RICE (Reach × Impact × Confidence / Effort)"
+  },
+  "summary": {
+    "totalApps": 12,
+    "avgRiceScore": "16.03",
+    "highPriority": 4,
+    "mediumPriority": 5,
+    "lowPriority": 3,
+    "highEffortApps": 3,
+    "lowImpactApps": 0,
+    "rationalizationCandidates": 0,
+    "topPriority": [
+      {
+        "application": "Electronic Fisheries Permit System (eFPS)",
+        "program": "Sustainable Fisheries",
+        "reach": 5,
+        "impact": 5,
+        "confidence": 4,
+        "effort": 3,
+        "riceScore": 33.333333333333336,
+        "reachExplanation": "[QUALITATIVE] Very High Reach: National-scale application with public access and 15,000 users across all stakeholder groups",
+        "impactExplanation": "[QUALITATIVE] Very High Impact: Mission-critical application. Failure would result in immediate cessation of regulatory functions or legal non-compliance",
+        "confidenceExplanation": "High Confidence: Complete qualitative data with detailed purpose. Good understanding but would benefit from quantitative metrics",
+        "effortExplanation": "[QUALITATIVE] Medium Effort: Moderate maintenance burden with $45,000/year hosting cost. Consistent support required",
+        "scoringMethod": {
+          "reach": "qualitative",
+          "impact": "qualitative",
+          "effort": "qualitative"
+        },
+        "isFullyQuantitative": false,
+        "dataQualityScore": "0%",
+        "priorityRank": 1
+      },
+      {
+        "application": "Stock Assessment Results Database (SARDB)",
+        "program": "Office of Science and Technology",
+        "reach": 5,
+        "impact": 4,
+        "confidence": 4,
+        "effort": 3,
+        "riceScore": 26.666666666666668,
+        "reachExplanation": "[QUALITATIVE] Very High Reach: National-scale application with public access and 12,000 users across all stakeholder groups",
+        "impactExplanation": "[QUALITATIVE] High Impact: Supports core regulatory or scientific workflows. Essential for meeting statutory mandates (enforcement/scientific functions)",
+        "confidenceExplanation": "High Confidence: Complete qualitative data with detailed purpose. Good understanding but would benefit from quantitative metrics",
+        "effortExplanation": "[QUALITATIVE] Medium Effort: Moderate maintenance burden with $22,000/year hosting cost. Consistent support required",
+        "scoringMethod": {
+          "reach": "qualitative",
+          "impact": "qualitative",
+          "effort": "qualitative"
+        },
+        "isFullyQuantitative": false,
+        "dataQualityScore": "0%",
+        "priorityRank": 2
+      },
+      {
+        "application": "Gulf Red Snapper Reporting System",
+        "program": "Southeast Region",
+        "reach": 3,
+        "impact": 4,
+        "confidence": 4,
+        "effort": 2,
+        "riceScore": 24,
+        "reachExplanation": "[QUALITATIVE] Medium Reach: Regional application with 3,200 users",
+        "impactExplanation": "[QUALITATIVE] High Impact: Supports core regulatory or scientific workflows. Essential for meeting statutory mandates (compliance/regulatory functions)",
+        "confidenceExplanation": "High Confidence: Strong data quality with detailed purpose description. Consider adding quantitative metrics",
+        "effortExplanation": "[QUALITATIVE] Low Effort: Low-cost operation ($12,000/year) with stable technology. Routine maintenance",
+        "scoringMethod": {
+          "reach": "qualitative",
+          "impact": "qualitative",
+          "effort": "qualitative"
+        },
+        "isFullyQuantitative": false,
+        "dataQualityScore": "0%",
+        "priorityRank": 3
+      },
+      {
+        "application": "Aquaculture Opportunity Areas Explorer",
+        "program": "Office of Aquaculture",
+        "reach": 4,
+        "impact": 3,
+        "confidence": 4,
+        "effort": 2,
+        "riceScore": 24,
+        "reachExplanation": "[QUALITATIVE] High Reach: National-scale application with public access serving multiple regions",
+        "impactExplanation": "[QUALITATIVE] Medium Impact: Supports important scientific or management functions, but not immediately mission-critical",
+        "confidenceExplanation": "High Confidence: Strong data quality with detailed purpose description. Consider adding quantitative metrics",
+        "effortExplanation": "[QUALITATIVE] Low Effort: Low-cost operation ($6,000/year) with stable technology. Routine maintenance",
+        "scoringMethod": {
+          "reach": "qualitative",
+          "impact": "qualitative",
+          "effort": "qualitative"
+        },
+        "isFullyQuantitative": false,
+        "dataQualityScore": "0%",
+        "priorityRank": 4
+      },
+      {
+        "application": "Essential Fish Habitat Mapper",
+        "program": "Habitat Conservation",
+        "reach": 3,
+        "impact": 4,
+        "confidence": 4,
+        "effort": 3,
+        "riceScore": 16,
+        "reachExplanation": "[QUALITATIVE] Medium Reach: Multi-program application with 8,500 users",
+        "impactExplanation": "[QUALITATIVE] High Impact: Supports core regulatory or scientific workflows. Essential for meeting statutory mandates (compliance/regulatory functions)",
+        "confidenceExplanation": "High Confidence: Strong data quality with detailed purpose description. Consider adding quantitative metrics",
+        "effortExplanation": "[QUALITATIVE] Medium Effort: Moderate maintenance burden with $18,000/year hosting cost. Consistent support required",
+        "scoringMethod": {
+          "reach": "qualitative",
+          "impact": "qualitative",
+          "effort": "qualitative"
+        },
+        "isFullyQuantitative": false,
+        "dataQualityScore": "0%",
+        "priorityRank": 5
+      }
+    ],
+    "attentionNeeded": [],
+    "dataQuality": {
+      "fullyQuantitative": 0,
+      "partialQuantitative": 0,
+      "fullyQualitative": 12,
+      "quantitativePercentage": "0.0%"
+    }
+  },
+  "results": [
+    {
+      "application": "Electronic Fisheries Permit System (eFPS)",
+      "program": "Sustainable Fisheries",
+      "reach": 5,
+      "impact": 5,
+      "confidence": 4,
+      "effort": 3,
+      "riceScore": 33.333333333333336,
+      "reachExplanation": "[QUALITATIVE] Very High Reach: National-scale application with public access and 15,000 users across all stakeholder groups",
+      "impactExplanation": "[QUALITATIVE] Very High Impact: Mission-critical application. Failure would result in immediate cessation of regulatory functions or legal non-compliance",
+      "confidenceExplanation": "High Confidence: Complete qualitative data with detailed purpose. Good understanding but would benefit from quantitative metrics",
+      "effortExplanation": "[QUALITATIVE] Medium Effort: Moderate maintenance burden with $45,000/year hosting cost. Consistent support required",
+      "scoringMethod": {
+        "reach": "qualitative",
+        "impact": "qualitative",
+        "effort": "qualitative"
+      },
+      "isFullyQuantitative": false,
+      "dataQualityScore": "0%",
+      "priorityRank": 1
+    },
+    {
+      "application": "Stock Assessment Results Database (SARDB)",
+      "program": "Office of Science and Technology",
+      "reach": 5,
+      "impact": 4,
+      "confidence": 4,
+      "effort": 3,
+      "riceScore": 26.666666666666668,
+      "reachExplanation": "[QUALITATIVE] Very High Reach: National-scale application with public access and 12,000 users across all stakeholder groups",
+      "impactExplanation": "[QUALITATIVE] High Impact: Supports core regulatory or scientific workflows. Essential for meeting statutory mandates (enforcement/scientific functions)",
+      "confidenceExplanation": "High Confidence: Complete qualitative data with detailed purpose. Good understanding but would benefit from quantitative metrics",
+      "effortExplanation": "[QUALITATIVE] Medium Effort: Moderate maintenance burden with $22,000/year hosting cost. Consistent support required",
+      "scoringMethod": {
+        "reach": "qualitative",
+        "impact": "qualitative",
+        "effort": "qualitative"
+      },
+      "isFullyQuantitative": false,
+      "dataQualityScore": "0%",
+      "priorityRank": 2
+    },
+    {
+      "application": "Gulf Red Snapper Reporting System",
+      "program": "Southeast Region",
+      "reach": 3,
+      "impact": 4,
+      "confidence": 4,
+      "effort": 2,
+      "riceScore": 24,
+      "reachExplanation": "[QUALITATIVE] Medium Reach: Regional application with 3,200 users",
+      "impactExplanation": "[QUALITATIVE] High Impact: Supports core regulatory or scientific workflows. Essential for meeting statutory mandates (compliance/regulatory functions)",
+      "confidenceExplanation": "High Confidence: Strong data quality with detailed purpose description. Consider adding quantitative metrics",
+      "effortExplanation": "[QUALITATIVE] Low Effort: Low-cost operation ($12,000/year) with stable technology. Routine maintenance",
+      "scoringMethod": {
+        "reach": "qualitative",
+        "impact": "qualitative",
+        "effort": "qualitative"
+      },
+      "isFullyQuantitative": false,
+      "dataQualityScore": "0%",
+      "priorityRank": 3
+    },
+    {
+      "application": "Aquaculture Opportunity Areas Explorer",
+      "program": "Office of Aquaculture",
+      "reach": 4,
+      "impact": 3,
+      "confidence": 4,
+      "effort": 2,
+      "riceScore": 24,
+      "reachExplanation": "[QUALITATIVE] High Reach: National-scale application with public access serving multiple regions",
+      "impactExplanation": "[QUALITATIVE] Medium Impact: Supports important scientific or management functions, but not immediately mission-critical",
+      "confidenceExplanation": "High Confidence: Strong data quality with detailed purpose description. Consider adding quantitative metrics",
+      "effortExplanation": "[QUALITATIVE] Low Effort: Low-cost operation ($6,000/year) with stable technology. Routine maintenance",
+      "scoringMethod": {
+        "reach": "qualitative",
+        "impact": "qualitative",
+        "effort": "qualitative"
+      },
+      "isFullyQuantitative": false,
+      "dataQualityScore": "0%",
+      "priorityRank": 4
+    },
+    {
+      "application": "Essential Fish Habitat Mapper",
+      "program": "Habitat Conservation",
+      "reach": 3,
+      "impact": 4,
+      "confidence": 4,
+      "effort": 3,
+      "riceScore": 16,
+      "reachExplanation": "[QUALITATIVE] Medium Reach: Multi-program application with 8,500 users",
+      "impactExplanation": "[QUALITATIVE] High Impact: Supports core regulatory or scientific workflows. Essential for meeting statutory mandates (compliance/regulatory functions)",
+      "confidenceExplanation": "High Confidence: Strong data quality with detailed purpose description. Consider adding quantitative metrics",
+      "effortExplanation": "[QUALITATIVE] Medium Effort: Moderate maintenance burden with $18,000/year hosting cost. Consistent support required",
+      "scoringMethod": {
+        "reach": "qualitative",
+        "impact": "qualitative",
+        "effort": "qualitative"
+      },
+      "isFullyQuantitative": false,
+      "dataQualityScore": "0%",
+      "priorityRank": 5
+    },
+    {
+      "application": "Salmon Recovery Tracker",
+      "program": "West Coast Region",
+      "reach": 2,
+      "impact": 4,
+      "confidence": 4,
+      "effort": 2,
+      "riceScore": 16,
+      "reachExplanation": "[QUALITATIVE] Low Reach: Program-specific application with 625 users, limited organizational scope",
+      "impactExplanation": "[QUALITATIVE] High Impact: Supports core regulatory or scientific workflows. Essential for meeting statutory mandates (compliance/regulatory functions)",
+      "confidenceExplanation": "High Confidence: Strong data quality with detailed purpose description. Consider adding quantitative metrics",
+      "effortExplanation": "[QUALITATIVE] Low Effort: Low-cost operation ($8,500/year) with modern technology. Routine maintenance",
+      "scoringMethod": {
+        "reach": "qualitative",
+        "impact": "qualitative",
+        "effort": "qualitative"
+      },
+      "isFullyQuantitative": false,
+      "dataQualityScore": "0%",
+      "priorityRank": 6
+    },
+    {
+      "application": "Scallop Rotational Area Tool",
+      "program": "Northeast Region",
+      "reach": 1,
+      "impact": 3,
+      "confidence": 4,
+      "effort": 1,
+      "riceScore": 12,
+      "reachExplanation": "[QUALITATIVE] Minimal Reach: Niche application with only 15 users in a specific group",
+      "impactExplanation": "[QUALITATIVE] Medium Impact: Supports important scientific or management functions, but not immediately mission-critical",
+      "confidenceExplanation": "High Confidence: Strong data quality with detailed purpose description. Consider adding quantitative metrics",
+      "effortExplanation": "[QUALITATIVE] Minimal Effort: Very low resource requirements ($500/year). Desktop application with negligible maintenance",
+      "scoringMethod": {
+        "reach": "qualitative",
+        "impact": "qualitative",
+        "effort": "qualitative"
+      },
+      "isFullyQuantitative": false,
+      "dataQualityScore": "0%",
+      "priorityRank": 7
+    },
+    {
+      "application": "Marine Mammal Stock Assessment Database",
+      "program": "Protected Resources",
+      "reach": 2,
+      "impact": 4,
+      "confidence": 4,
+      "effort": 3,
+      "riceScore": 10.666666666666666,
+      "reachExplanation": "[QUALITATIVE] Low Reach: Program-specific application with 450 users, limited organizational scope",
+      "impactExplanation": "[QUALITATIVE] High Impact: Supports core regulatory or scientific workflows. Essential for meeting statutory mandates (compliance/regulatory functions)",
+      "confidenceExplanation": "High Confidence: Complete qualitative data with detailed purpose. Good understanding but would benefit from quantitative metrics",
+      "effortExplanation": "[QUALITATIVE] Medium Effort: Moderate maintenance burden with $28,000/year hosting cost. Consistent support required",
+      "scoringMethod": {
+        "reach": "qualitative",
+        "impact": "qualitative",
+        "effort": "qualitative"
+      },
+      "isFullyQuantitative": false,
+      "dataQualityScore": "0%",
+      "priorityRank": 8
+    },
+    {
+      "application": "Vessel Monitoring System (VMS) Portal",
+      "program": "Office of Law Enforcement",
+      "reach": 2,
+      "impact": 5,
+      "confidence": 4,
+      "effort": 4,
+      "riceScore": 10,
+      "reachExplanation": "[QUALITATIVE] Low Reach: Program-specific application with 580 users, limited organizational scope",
+      "impactExplanation": "[QUALITATIVE] Very High Impact: Mission-critical application. Failure would result in immediate cessation of regulatory functions or legal non-compliance",
+      "confidenceExplanation": "High Confidence: Complete qualitative data with detailed purpose. Good understanding but would benefit from quantitative metrics",
+      "effortExplanation": "[QUALITATIVE] High Effort: High-cost hosting requiring significant resources ($62,000/year). Frequent manual intervention needed",
+      "scoringMethod": {
+        "reach": "qualitative",
+        "impact": "qualitative",
+        "effort": "qualitative"
+      },
+      "isFullyQuantitative": false,
+      "dataQualityScore": "0%",
+      "priorityRank": 9
+    },
+    {
+      "application": "Observer Data Entry Portal (ODEP)",
+      "program": "Fisheries Statistics",
+      "reach": 2,
+      "impact": 4,
+      "confidence": 4,
+      "effort": 4,
+      "riceScore": 8,
+      "reachExplanation": "[QUALITATIVE] Low Reach: Program-specific application with 850 users, limited organizational scope",
+      "impactExplanation": "[QUALITATIVE] High Impact: Supports core regulatory or scientific workflows. Essential for meeting statutory mandates (compliance/regulatory functions)",
+      "confidenceExplanation": "High Confidence: Complete qualitative data with detailed purpose. Good understanding but would benefit from quantitative metrics",
+      "effortExplanation": "[QUALITATIVE] High Effort: High-cost hosting requiring significant resources ($52,000/year). Frequent manual intervention needed",
+      "scoringMethod": {
+        "reach": "qualitative",
+        "impact": "qualitative",
+        "effort": "qualitative"
+      },
+      "isFullyQuantitative": false,
+      "dataQualityScore": "0%",
+      "priorityRank": 10
+    },
+    {
+      "application": "North Pacific Observer Program Database",
+      "program": "Alaska Region",
+      "reach": 2,
+      "impact": 4,
+      "confidence": 4,
+      "effort": 5,
+      "riceScore": 6.4,
+      "reachExplanation": "[QUALITATIVE] Low Reach: Program-specific application with 320 users, limited organizational scope",
+      "impactExplanation": "[QUALITATIVE] High Impact: Supports core regulatory or scientific workflows. Essential for meeting statutory mandates (compliance/regulatory functions)",
+      "confidenceExplanation": "High Confidence: Strong data quality with detailed purpose description. Consider adding quantitative metrics",
+      "effortExplanation": "[QUALITATIVE] Very High Effort: Legacy technology stack (legacy oracle forms) with documented technical debt. Requires constant maintenance",
+      "scoringMethod": {
+        "reach": "qualitative",
+        "impact": "qualitative",
+        "effort": "qualitative"
+      },
+      "isFullyQuantitative": false,
+      "dataQualityScore": "0%",
+      "priorityRank": 11
+    },
+    {
+      "application": "ICCAT Data Submission System",
+      "program": "International Affairs",
+      "reach": 1,
+      "impact": 4,
+      "confidence": 4,
+      "effort": 3,
+      "riceScore": 5.333333333333333,
+      "reachExplanation": "[QUALITATIVE] Minimal Reach: Niche application with only 45 users in a specific group",
+      "impactExplanation": "[QUALITATIVE] High Impact: Supports core regulatory or scientific workflows. Essential for meeting statutory mandates (compliance/regulatory functions)",
+      "confidenceExplanation": "High Confidence: Strong data quality with detailed purpose description. Consider adding quantitative metrics",
+      "effortExplanation": "[QUALITATIVE] Medium Effort: Moderate maintenance burden with $15,000/year hosting cost. Consistent support required",
+      "scoringMethod": {
+        "reach": "qualitative",
+        "impact": "qualitative",
+        "effort": "qualitative"
+      },
+      "isFullyQuantitative": false,
+      "dataQualityScore": "0%",
+      "priorityRank": 12
+    }
+  ]
+}
