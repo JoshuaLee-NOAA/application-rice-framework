@@ -4,19 +4,13 @@ import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { cn } from '@/lib/utils';
 import {
-  LayoutDashboard,
   Database,
   BarChart3,
-  PieChart,
-  CheckCircle2,
 } from 'lucide-react';
 
 const navigation = [
-  { name: 'Dashboard', href: '/', icon: LayoutDashboard },
   { name: 'Applications', href: '/applications', icon: Database },
   { name: 'Analysis', href: '/analysis', icon: BarChart3 },
-  { name: 'Visualizations', href: '/visualizations', icon: PieChart },
-  { name: 'Data Quality', href: '/data-quality', icon: CheckCircle2 },
 ];
 
 export default function Sidebar() {

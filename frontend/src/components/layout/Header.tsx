@@ -1,5 +1,3 @@
-import { RefreshCw } from 'lucide-react';
-
 export default function Header() {
   return (
     <header className="bg-navy-500 text-white shadow-lg">
@@ -11,14 +9,6 @@ export default function Header() {
               NOAA Fisheries OCIO
             </p>
           </div>
-        </div>
-        <div className="flex items-center gap-3">
-          <button 
-            className="px-3 py-1.5 text-sm font-medium bg-ocean-500 text-white border border-ocean-600 rounded-md hover:bg-ocean-600 transition-colors flex items-center gap-2"
-          >
-            <RefreshCw className="w-4 h-4" />
-            Run Analysis
-          </button>
         </div>
       </div>
     </header>
