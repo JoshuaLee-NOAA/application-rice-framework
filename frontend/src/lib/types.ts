@@ -37,7 +37,7 @@ export const ApplicationSchema = z.object({
   id: z.string().optional(),
   Application: z.string().min(1, 'Application name is required'),
   'Program Name': z.string().min(1, 'Program name is required'),
-  'Prod URL': z.string().url().or(z.literal('')),
+  'Prod URL': z.string().optional().default(''),
   'Dev URL': z.string().url().or(z.literal('')).optional(),
   'Test URL': z.string().url().or(z.literal('')).optional(),
   'Any Additional url': z.string().optional(),

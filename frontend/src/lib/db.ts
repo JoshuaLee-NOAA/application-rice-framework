@@ -3,7 +3,7 @@ import path from 'path';
 import { Application } from './types';
 
 const DATA_DIR = path.join(process.cwd(), '../data');
-const PORTFOLIO_FILE = path.join(DATA_DIR, 'portfolio.json');
+const PORTFOLIO_FILE = path.join(DATA_DIR, 'portfolio-from-inventory.json');
 
 export class Database {
   private static async ensureDataDir() {
@@ -17,7 +17,13 @@ export class Database {
   static async getAllApplications(): Promise<Application[]> {
     try {
       const data = await fs.readFile(PORTFOLIO_FILE, 'utf-8');
-      return JSON.parse(data);
+      const apps = JSON.parse(data);
+      
+      // Ensure all apps have IDs
+      return apps.map((app: Application) => ({
+        ...app,
+        id: app.id || crypto.randomUUID()
+      }));
     } catch (error) {
       return [];
     }
