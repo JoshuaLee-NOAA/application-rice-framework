@@ -1,0 +1,509 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RICE Framework Priority Quadrant Chart</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            background: #f5f5f5;
+            padding: 20px;
+            margin: 0;
+        }
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        h1 {
+            text-align: center;
+            color: #2c3e50;
+            margin-bottom: 10px;
+        }
+        .subtitle {
+            text-align: center;
+            color: #7f8c8d;
+            font-size: 14px;
+            font-style: italic;
+            margin-bottom: 30px;
+        }
+        #chartContainer {
+            position: relative;
+            height: 800px;
+            margin: 20px 0;
+        }
+        .export-section {
+            background: #e8f4f8;
+            padding: 15px;
+            border-radius: 5px;
+            margin-bottom: 20px;
+            border-left: 4px solid #3498db;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .export-section h3 {
+            margin: 0;
+            color: #2980b9;
+        }
+        .export-btn {
+            background: #3498db;
+            color: white;
+            border: none;
+            padding: 12px 24px;
+            border-radius: 5px;
+            font-size: 14px;
+            font-weight: bold;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            transition: background 0.3s;
+        }
+        .export-btn:hover {
+            background: #2980b9;
+        }
+        .export-btn:active {
+            transform: scale(0.98);
+        }
+        .status-badge {
+            background: #2ecc71;
+            color: white;
+            padding: 4px 12px;
+            border-radius: 12px;
+            font-size: 12px;
+            font-weight: bold;
+        }
+        .footer {
+            text-align: center;
+            color: #95a5a6;
+            font-size: 12px;
+            margin-top: 20px;
+            padding-top: 20px;
+            border-top: 1px solid #ecf0f1;
+        }
+        .quadrant-legend {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 15px;
+            margin: 20px 0;
+        }
+        .quadrant-item {
+            padding: 15px;
+            border-radius: 8px;
+            border: 2px solid #ddd;
+        }
+        .quadrant-item h4 {
+            margin: 0 0 5px 0;
+            font-size: 16px;
+        }
+        .quadrant-item p {
+            margin: 0;
+            font-size: 13px;
+            color: #666;
+        }
+        .sweet-spot { background: #d5f4e6; border-color: #2ecc71; }
+        .mission-critical { background: #fcf3cf; border-color: #f39c12; }
+        .maintain { background: #e8daef; border-color: #9b59b6; }
+        .rationalize { background: #fadbd8; border-color: #e74c3c; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🎯 RICE Framework: Application Portfolio Priority Analysis</h1>
+        <div class="subtitle">
+            Formula: RICE = (Reach × Impact × Confidence) / Effort | Higher scores = Higher priority for investment
+        </div>
+
+        <div class="export-section">
+            <div>
+                <h3>📊 Priority Quadrant Chart</h3>
+                <span class="status-badge">✓ All 12 apps labeled</span>
+            </div>
+            <button class="export-btn" onclick="exportChart()">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                    <polyline points="7 10 12 15 17 10"></polyline>
+                    <line x1="12" y1="15" x2="12" y2="3"></line>
+                </svg>
+                Download PNG
+            </button>
+        </div>
+
+        <div id="chartContainer">
+            <canvas id="priorityChart"></canvas>
+        </div>
+
+        <div class="quadrant-legend">
+            <div class="quadrant-item sweet-spot">
+                <h4>✨ Sweet Spot</h4>
+                <p>High Value, Low Effort<br><strong>Strategy:</strong> Maximize these wins</p>
+            </div>
+            <div class="quadrant-item mission-critical">
+                <h4>💪 Mission Critical</h4>
+                <p>High Value, High Effort<br><strong>Strategy:</strong> Optimize for efficiency</p>
+            </div>
+            <div class="quadrant-item maintain">
+                <h4>📌 Maintain As-Is</h4>
+                <p>Low Value, Low Effort<br><strong>Strategy:</strong> Keep stable, minimal investment</p>
+            </div>
+            <div class="quadrant-item rationalize">
+                <h4>⚠️ Rationalize</h4>
+                <p>Low Value, High Effort<br><strong>Strategy:</strong> Modernize or sunset</p>
+            </div>
+        </div>
+
+        <div class="footer">
+            NOAA Fisheries Application Portfolio Management | Generated: March 2026
+        </div>
+    </div>
+
+    <script>
+        // Application data from RICE analysis
+        const applications = [
+            { name: 'eFPS', fullName: 'Electronic Fisheries Permit System', reach: 5, impact: 5, confidence: 4, effort: 3, rice: 33.33, users: 15000 },
+            { name: 'SARDB', fullName: 'Stock Assessment Results Database', reach: 5, impact: 4, confidence: 4, effort: 3, rice: 26.67, users: 12000 },
+            { name: 'Red Snapper System', fullName: 'Gulf Red Snapper Reporting System', reach: 3, impact: 4, confidence: 4, effort: 2, rice: 24.00, users: 3200 },
+            { name: 'Aquaculture Explorer', fullName: 'Aquaculture Opportunity Areas Explorer', reach: 4, impact: 3, confidence: 4, effort: 2, rice: 24.00, users: 2800 },
+            { name: 'EFH Mapper', fullName: 'Essential Fish Habitat Mapper', reach: 3, impact: 4, confidence: 4, effort: 3, rice: 16.00, users: 8500 },
+            { name: 'Salmon Tracker', fullName: 'Salmon Recovery Tracker', reach: 2, impact: 4, confidence: 4, effort: 2, rice: 16.00, users: 625 },
+            { name: 'Scallop Tool', fullName: 'Scallop Rotational Area Tool', reach: 1, impact: 3, confidence: 4, effort: 1, rice: 12.00, users: 15 },
+            { name: 'Marine Mammal DB', fullName: 'Marine Mammal Stock Assessment Database', reach: 2, impact: 4, confidence: 4, effort: 3, rice: 10.67, users: 450 },
+            { name: 'VMS Portal', fullName: 'Vessel Monitoring System Portal', reach: 2, impact: 5, confidence: 4, effort: 4, rice: 10.00, users: 580 },
+            { name: 'ODEP', fullName: 'Observer Data Entry Portal', reach: 2, impact: 4, confidence: 4, effort: 4, rice: 8.00, users: 850 },
+            { name: 'N. Pacific Observer', fullName: 'North Pacific Observer Program Database', reach: 2, impact: 4, confidence: 4, effort: 5, rice: 6.40, users: 320 },
+            { name: 'ICCAT System', fullName: 'ICCAT Data Submission System', reach: 1, impact: 4, confidence: 4, effort: 3, rice: 5.33, users: 45 }
+        ];
+
+        // Calculate value (R × I × C) for y-axis
+        applications.forEach(app => {
+            app.value = app.reach * app.impact * app.confidence;
+        });
+
+        // Determine color based on RICE score
+        function getColor(rice) {
+            if (rice >= 20) return '#2ecc71';  // Green - High Priority
+            if (rice >= 10) return '#f39c12';  // Amber - Medium Priority
+            return '#e74c3c';  // Red - Low Priority
+        }
+
+        // Calculate bubble size based on users
+        function getBubbleSize(users) {
+            const maxUsers = Math.max(...applications.map(a => a.users));
+            const minSize = 8;
+            const maxSize = 30;
+            return minSize + (maxSize - minSize) * Math.sqrt(users / maxUsers);
+        }
+
+        // Prepare chart data
+        const chartData = applications.map(app => ({
+            x: app.effort,
+            y: app.value,
+            r: getBubbleSize(app.users),
+            label: app.name,
+            fullName: app.fullName,
+            rice: app.rice,
+            users: app.users,
+            backgroundColor: getColor(app.rice)
+        }));
+
+        // Create the chart
+        const ctx = document.getElementById('priorityChart').getContext('2d');
+        
+        // Custom plugin to draw quadrant backgrounds and labels
+        const quadrantPlugin = {
+            id: 'quadrantPlugin',
+            beforeDraw: (chart) => {
+                const ctx = chart.ctx;
+                const chartArea = chart.chartArea;
+                const xAxis = chart.scales.x;
+                const yAxis = chart.scales.y;
+                
+                // Calculate positions
+                const midX = xAxis.getPixelForValue(2.5);
+                const midY = yAxis.getPixelForValue(62.5);
+                
+                // Draw quadrant backgrounds
+                ctx.save();
+                
+                // Top-left (Sweet Spot)
+                ctx.fillStyle = 'rgba(213, 244, 230, 0.3)';
+                ctx.fillRect(chartArea.left, chartArea.top, midX - chartArea.left, midY - chartArea.top);
+                
+                // Top-right (Mission Critical)
+                ctx.fillStyle = 'rgba(252, 243, 207, 0.3)';
+                ctx.fillRect(midX, chartArea.top, chartArea.right - midX, midY - chartArea.top);
+                
+                // Bottom-left (Maintain)
+                ctx.fillStyle = 'rgba(232, 218, 239, 0.2)';
+                ctx.fillRect(chartArea.left, midY, midX - chartArea.left, chartArea.bottom - midY);
+                
+                // Bottom-right (Rationalize)
+                ctx.fillStyle = 'rgba(250, 219, 216, 0.3)';
+                ctx.fillRect(midX, midY, chartArea.right - midX, chartArea.bottom - midY);
+                
+                // Draw quadrant lines
+                ctx.strokeStyle = 'rgba(149, 165, 166, 0.6)';
+                ctx.lineWidth = 2;
+                ctx.setLineDash([5, 5]);
+                
+                // Horizontal line
+                ctx.beginPath();
+                ctx.moveTo(chartArea.left, midY);
+                ctx.lineTo(chartArea.right, midY);
+                ctx.stroke();
+                
+                // Vertical line
+                ctx.beginPath();
+                ctx.moveTo(midX, chartArea.top);
+                ctx.lineTo(midX, chartArea.bottom);
+                ctx.stroke();
+                
+                ctx.setLineDash([]);
+                
+                // Draw quadrant labels
+                ctx.font = 'bold 13px Arial';
+                ctx.fillStyle = '#5d6d7e';
+                ctx.textAlign = 'center';
+                
+                const labelY1 = chartArea.top + 25;
+                const labelY2 = chartArea.bottom - 15;
+                const labelX1 = chartArea.left + (midX - chartArea.left) / 2;
+                const labelX2 = midX + (chartArea.right - midX) / 2;
+                
+                ctx.fillText('✨ Sweet Spot', labelX1, labelY1);
+                ctx.font = '11px Arial';
+                ctx.fillText('(High Value, Low Effort)', labelX1, labelY1 + 15);
+                
+                ctx.font = 'bold 13px Arial';
+                ctx.fillText('💪 Mission Critical', labelX2, labelY1);
+                ctx.font = '11px Arial';
+                ctx.fillText('(High Value, High Effort)', labelX2, labelY1 + 15);
+                
+                ctx.font = 'bold 13px Arial';
+                ctx.fillText('📌 Maintain As-Is', labelX1, labelY2);
+                ctx.font = '11px Arial';
+                ctx.fillText('(Low Value, Low Effort)', labelX1, labelY2 + 15);
+                
+                ctx.font = 'bold 13px Arial';
+                ctx.fillText('⚠️ Rationalize', labelX2, labelY2);
+                ctx.font = '11px Arial';
+                ctx.fillText('(Low Value, High Effort)', labelX2, labelY2 + 15);
+                
+                ctx.restore();
+            }
+        };
+
+        const chart = new Chart(ctx, {
+            type: 'bubble',
+            data: {
+                datasets: [{
+                    label: 'Applications',
+                    data: chartData,
+                    backgroundColor: chartData.map(d => d.backgroundColor),
+                    borderColor: '#ffffff',
+                    borderWidth: 2
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    legend: {
+                        display: true,
+                        position: 'top',
+                        labels: {
+                            generateLabels: () => [
+                                { text: 'High Priority (RICE ≥ 20)', fillStyle: '#2ecc71', strokeStyle: '#fff', lineWidth: 2 },
+                                { text: 'Medium Priority (RICE 10-20)', fillStyle: '#f39c12', strokeStyle: '#fff', lineWidth: 2 },
+                                { text: 'Low Priority (RICE < 10)', fillStyle: '#e74c3c', strokeStyle: '#fff', lineWidth: 2 }
+                            ]
+                        }
+                    },
+                    tooltip: {
+                        callbacks: {
+                            title: (context) => {
+                                return context[0].raw.fullName;
+                            },
+                            label: (context) => {
+                                const data = context.raw;
+                                return [
+                                    `RICE Score: ${data.rice}`,
+                                    `Value: ${data.y} (R×I×C)`,
+                                    `Effort: ${data.x}`,
+                                    `Users: ${data.users.toLocaleString()}`
+                                ];
+                            }
+                        },
+                        backgroundColor: 'rgba(0, 0, 0, 0.8)',
+                        titleFont: { size: 14, weight: 'bold' },
+                        bodyFont: { size: 12 },
+                        padding: 12,
+                        displayColors: false
+                    }
+                },
+                scales: {
+                    x: {
+                        title: {
+                            display: true,
+                            text: 'Effort Score (Higher = More Resources Required)',
+                            font: { size: 14, weight: 'bold' },
+                            padding: 10
+                        },
+                        min: 0.5,
+                        max: 5.5,
+                        ticks: {
+                            stepSize: 1,
+                            font: { size: 12 }
+                        },
+                        grid: {
+                            color: 'rgba(0, 0, 0, 0.05)'
+                        }
+                    },
+                    y: {
+                        title: {
+                            display: true,
+                            text: 'Value Score (Reach × Impact × Confidence)',
+                            font: { size: 14, weight: 'bold' },
+                            padding: 10
+                        },
+                        min: 0,
+                        max: 125,
+                        ticks: {
+                            stepSize: 25,
+                            font: { size: 12 }
+                        },
+                        grid: {
+                            color: 'rgba(0, 0, 0, 0.05)'
+                        }
+                    }
+                }
+            },
+            plugins: [quadrantPlugin]
+        });
+
+        // Smart label positioning to avoid overlaps
+        Chart.register({
+            id: 'smartLabels',
+            afterDatasetsDraw: (chart) => {
+                const ctx = chart.ctx;
+                const meta = chart.getDatasetMeta(0);
+                const positions = [];
+                
+                // Calculate optimal position for each label
+                chart.data.datasets[0].data.forEach((dataPoint, index) => {
+                    const element = meta.data[index];
+                    const basePos = element.tooltipPosition();
+                    
+                    // Define manual overrides for known problematic positions
+                    const manualOffsets = {
+                        'eFPS': { x: 0, y: -25 },
+                        'SARDB': { x: 45, y: 0 },
+                        'Red Snapper System': { x: 0, y: 15 },  // Below bubble
+                        'Aquaculture Explorer': { x: -55, y: -10 },  // Left
+                        'EFH Mapper': { x: -45, y: 5 },  // Left side
+                        'Salmon Tracker': { x: 0, y: -25 },  // Above
+                        'Scallop Tool': { x: 0, y: 15 },  // Below
+                        'Marine Mammal DB': { x: 50, y: 0 },  // Right
+                        'VMS Portal': { x: 50, y: 5 },  // Right
+                        'ODEP': { x: -40, y: 0 },  // Left
+                        'N. Pacific Observer': { x: 60, y: 0 },  // Far right
+                        'ICCAT System': { x: 0, y: 15 }  // Below
+                    };
+                    
+                    const offset = manualOffsets[dataPoint.label] || { x: 0, y: -25 };
+                    const radius = element.options.radius;
+                    
+                    positions.push({
+                        x: basePos.x + offset.x,
+                        y: basePos.y + offset.y,
+                        label: dataPoint.label,
+                        bubbleX: basePos.x,
+                        bubbleY: basePos.y,
+                        radius: radius
+                    });
+                });
+                
+                // Draw labels with backgrounds
+                ctx.font = 'bold 11px Arial';
+                positions.forEach(pos => {
+                    const text = pos.label;
+                    const textWidth = ctx.measureText(text).width;
+                    const padding = 5;
+                    const height = 16;
+                    
+                    // Determine text alignment based on offset
+                    let textAlign = 'center';
+                    let rectX = pos.x - textWidth / 2 - padding;
+                    
+                    if (pos.x > pos.bubbleX + 20) {
+                        textAlign = 'left';
+                        rectX = pos.x - padding;
+                    } else if (pos.x < pos.bubbleX - 20) {
+                        textAlign = 'right';
+                        rectX = pos.x - textWidth - padding;
+                    }
+                    
+                    // Draw background
+                    ctx.fillStyle = 'rgba(255, 255, 255, 0.95)';
+                    ctx.strokeStyle = 'rgba(0, 0, 0, 0.1)';
+                    ctx.lineWidth = 1;
+                    const boxWidth = textWidth + padding * 2;
+                    const boxHeight = height;
+                    const boxX = rectX;
+                    const boxY = pos.y - height / 2;
+                    
+                    ctx.fillRect(boxX, boxY, boxWidth, boxHeight);
+                    ctx.strokeRect(boxX, boxY, boxWidth, boxHeight);
+                    
+                    // Draw text
+                    ctx.fillStyle = '#2c3e50';
+                    ctx.textAlign = textAlign;
+                    ctx.textBaseline = 'middle';
+                    
+                    if (textAlign === 'center') {
+                        ctx.fillText(text, pos.x, pos.y);
+                    } else if (textAlign === 'left') {
+                        ctx.fillText(text, pos.x + padding, pos.y);
+                    } else {
+                        ctx.fillText(text, pos.x - padding, pos.y);
+                    }
+                    
+                    // Draw connector line for labels that are offset
+                    const distance = Math.sqrt(Math.pow(pos.x - pos.bubbleX, 2) + Math.pow(pos.y - pos.bubbleY, 2));
+                    if (distance > pos.radius + 15) {
+                        ctx.strokeStyle = 'rgba(44, 62, 80, 0.3)';
+                        ctx.lineWidth = 1;
+                        ctx.beginPath();
+                        
+                        // Calculate start point on edge of bubble
+                        const angle = Math.atan2(pos.y - pos.bubbleY, pos.x - pos.bubbleX);
+                        const startX = pos.bubbleX + Math.cos(angle) * (pos.radius + 2);
+                        const startY = pos.bubbleY + Math.sin(angle) * (pos.radius + 2);
+                        
+                        ctx.moveTo(startX, startY);
+                        ctx.lineTo(pos.x, pos.y);
+                        ctx.stroke();
+                    }
+                });
+            }
+        });
+
+        // Export chart as PNG
+        function exportChart() {
+            const canvas = document.getElementById('priorityChart');
+            const url = canvas.toDataURL('image/png', 1.0);
+            const link = document.createElement('a');
+            const timestamp = new Date().toISOString().slice(0, 10);
+            link.download = `rice-priority-quadrant-${timestamp}.png`;
+            link.href = url;
+            link.click();
+        }
+    </script>
+</body>
+</html>

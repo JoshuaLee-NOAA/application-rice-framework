@@ -214,13 +214,15 @@ function calculateConfidence(app) {
   let missingOptional = 0;
   
   requiredFields.forEach(field => {
-    if (!app[field] || app[field].trim() === '') {
+    const value = app[field];
+    if (!value || (typeof value === 'string' && value.trim() === '')) {
       missingRequired++;
     }
   });
   
   optionalFields.forEach(field => {
-    if (!app[field] || app[field].trim() === '') {
+    const value = app[field];
+    if (!value || (typeof value === 'string' && value.trim() === '')) {
       missingOptional++;
     }
   });
@@ -364,8 +366,11 @@ export function analyzeApplication(app) {
   const confidence = calculateConfidence(app);
   const effort = calculateEffort(app);
   
+  // Prevent division by zero - ensure effort is at least 1
+  const effortScore = effort.score === 0 ? 1 : effort.score;
+  
   // Calculate RICE score: (Reach × Impact × Confidence) / Effort
-  const riceScore = (reach.score * impact.score * confidence.score) / effort.score;
+  const riceScore = (reach.score * impact.score * confidence.score) / effortScore;
   
   // Determine if using quantitative or qualitative method
   const scoringMethod = {
