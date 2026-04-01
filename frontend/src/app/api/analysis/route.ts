@@ -1,5 +1,6 @@
 import { NextResponse } from 'next/server';
 import { Database } from '@/lib/db';
+import { analyzePortfolio, generateSummary } from '@/lib/analyzer/analyzer';
 import fs from 'fs/promises';
 import path from 'path';
 
@@ -8,13 +9,9 @@ export async function POST() {
     // Get all applications
     const applications = await Database.getAllApplications();
     
-    // Import the analyzer dynamically
-    const analyzerPath = path.join(process.cwd(), '../src/analyzer.js');
-    const analyzer = await import(analyzerPath);
-    
     // Run RICE analysis
-    const results = analyzer.analyzePortfolio(applications);
-    const summary = analyzer.generateSummary(results);
+    const results = analyzePortfolio(applications);
+    const summary = generateSummary(results);
     
     // Save results to output directory
     const outputDir = path.join(process.cwd(), '../output');
